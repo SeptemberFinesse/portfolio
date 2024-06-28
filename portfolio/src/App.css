@@ -40,7 +40,8 @@ nav .contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -53,6 +54,7 @@ nav .contact {
   color: black;
   padding: 20px;
   transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 .section img {
@@ -64,5 +66,22 @@ nav .contact {
 }
 
 .section.hovered img {
+  opacity: 1;
+}
+
+.section p {
+  margin: 0;
+  z-index: 1;
+  font-size: 1em;
+  color: black;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.section.hovered p {
   opacity: 1;
 }
