@@ -3,19 +3,15 @@ import Section from './components/Section';
 import './App.css';
 
 const App = () => {
+  const [clickedNav, setClickedNav] = useState('');
   const [hoveredSection, setHoveredSection] = useState('');
-  const [hoveredNav, setHoveredNav] = useState('');
 
   const handleSectionHover = (section) => {
     setHoveredSection(section);
   };
 
-  const handleNavHover = (navItem) => {
-    setHoveredNav(navItem);
-  };
-
-  const handleNavLeave = () => {
-    setHoveredNav('');
+  const handleNavClick = (navItem) => {
+    setClickedNav(navItem);
   };
 
   return (
@@ -25,15 +21,13 @@ const App = () => {
         <nav>
           <div
             className="about"
-            onMouseEnter={() => handleNavHover('about')}
-            onMouseLeave={handleNavLeave}
+            onClick={() => handleNavClick('about')}
           >
             ABOUT
           </div>
           <div
             className="contact"
-            onMouseEnter={() => handleNavHover('contact')}
-            onMouseLeave={handleNavLeave}
+            onClick={() => handleNavClick('contact')}
           >
             CONTACT
           </div>
@@ -41,33 +35,33 @@ const App = () => {
       </div>
       <div className="sections">
         <Section
-          content={hoveredNav === 'about' ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' : hoveredNav === 'contact' ? 'Finessefilmproductions@gmail.com' : ''}
+          content={clickedNav === 'about' ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' : clickedNav === 'contact' ? 'Finessefilmproductions@gmail.com' : ''}
           gif="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif"
-          isNavHovered={hoveredNav !== ''}
+          isNavClicked={clickedNav !== ''}
           isHovered={hoveredSection === 'section1'}
           onMouseEnter={() => handleSectionHover('section1')}
           onMouseLeave={() => handleSectionHover('')}
         />
         <Section
-          content={hoveredNav === 'about' || hoveredNav === 'contact' ? 'Lorenzo Llamas (Developer, Technical Consultant, Client Relationship Manager)' : ''}
+          content={clickedNav === 'about' || clickedNav === 'contact' ? 'Lorenzo Llamas (Developer, Technical Consultant, Client Relationship Manager)' : ''}
           gif="https://media.giphy.com/media/f3iwJFOVOwuy7K6FFw/giphy.gif"
-          isNavHovered={hoveredNav !== ''}
+          isNavClicked={clickedNav !== ''}
           isHovered={hoveredSection === 'section2'}
           onMouseEnter={() => handleSectionHover('section2')}
           onMouseLeave={() => handleSectionHover('')}
         />
         <Section
           content=""
-          gif={hoveredNav === 'about' ? 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' : hoveredNav === 'contact' ? 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' : 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif'}
-          isNavHovered={hoveredNav !== ''}
+          gif={clickedNav === 'about' ? 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' : clickedNav === 'contact' ? 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' : 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif'}
+          isNavClicked={clickedNav !== ''}
           isHovered={hoveredSection === 'section3'}
           onMouseEnter={() => handleSectionHover('section3')}
           onMouseLeave={() => handleSectionHover('')}
         />
         <Section
-          content={hoveredNav === 'about' || hoveredNav === 'contact' ? 'Instagram: FinesseCoding YouTube: FinesseCoding' : ''}
+          content={clickedNav === 'about' || clickedNav === 'contact' ? 'Instagram: FinesseCoding YouTube: FinesseCoding' : ''}
           gif="https://gifdb.com/images/high/coding-animated-laptop-flow-stream-ja04010rm5o68zfk.gif"
-          isNavHovered={hoveredNav !== ''}
+          isNavClicked={clickedNav !== ''}
           isHovered={hoveredSection === 'section4'}
           onMouseEnter={() => handleSectionHover('section4')}
           onMouseLeave={() => handleSectionHover('')}
