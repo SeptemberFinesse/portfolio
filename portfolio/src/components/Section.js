@@ -1,10 +1,10 @@
 import React from 'react';
 import './Section.css';
 
-const Section = ({ content, gif, isNavClicked, isHovered, onMouseEnter, onMouseLeave }) => {
+const Section = ({ content, gif, isNavClicked, onMouseEnter, onMouseLeave }) => {
   return (
     <div
-      className={`section ${isHovered ? 'hovered' : ''}`}
+      className="section"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

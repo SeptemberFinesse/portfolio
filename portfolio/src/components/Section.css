@@ -11,22 +11,18 @@
   
   .section p {
     margin: 0;
-    z-index: 1; /* Ensure the text is above other elements */
+    z-index: 1;
     font-size: 1em;
     color: black;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    position: absolute; /* Ensure the text is positioned within the section */
-    top: 50%; /* Center the text vertically */
-    left: 50%; /* Center the text horizontally */
-    transform: translate(-50%, -50%); /* Center the text */
-  }
-  
-  .section.hovered p {
     opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
-  .section-gif {
+  .section img {
     position: absolute;
     top: 0;
     left: 0;
