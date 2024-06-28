@@ -11,7 +11,11 @@ const App = () => {
   };
 
   const handleNavClick = (navItem) => {
-    setClickedNav(navItem);
+    if (clickedNav === navItem) {
+      setClickedNav('');
+    } else {
+      setClickedNav(navItem);
+    }
   };
 
   return (
@@ -19,16 +23,10 @@ const App = () => {
       <div className="my-header">
         <h1>LORENZO LLAMAS</h1>
         <nav>
-          <div
-            className="about"
-            onClick={() => handleNavClick('about')}
-          >
+          <div className="about" onClick={() => handleNavClick('about')}>
             ABOUT
           </div>
-          <div
-            className="contact"
-            onClick={() => handleNavClick('contact')}
-          >
+          <div className="contact" onClick={() => handleNavClick('contact')}>
             CONTACT
           </div>
         </nav>
