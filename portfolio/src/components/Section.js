@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Typewriter from './Typewriter';
 import './Section.css';
 
 const Section = ({ content, gif }) => {
@@ -23,7 +24,7 @@ const Section = ({ content, gif }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {content && <p>{content}</p>}
+      {hovered && content && <Typewriter text={content} />}
       {displayGif && <img src={gif} alt="gif" className="section-gif" />}
     </div>
   );

@@ -11,32 +11,42 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Lorenzo Llamas</h1>
-        <div className="header-container">
-          <div 
-            className="header-left"
+      <div className="my-header">
+        <h1>LORENZO LLAMAS</h1>
+        <nav>
+          <a
+            href="#about"
+            className="about"
             onMouseEnter={() => handleHover('about')}
             onMouseLeave={() => handleHover('')}
           >
-            <h2>About</h2>
-          </div>
-          <div 
-            className="header-right"
+            ABOUT
+          </a>
+          <a
+            href="#contact"
+            className="contact"
             onMouseEnter={() => handleHover('contact')}
             onMouseLeave={() => handleHover('')}
           >
-            <h2>Contact</h2>
-          </div>
-        </div>
-      </header>
+            CONTACT
+          </a>
+        </nav>
+      </div>
       <div className="sections">
         <Section
-          content={hovered === 'about' ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' : ''}
+          content={
+            hovered === 'about'
+              ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+              : ''
+          }
           gif={hovered === 'contact' ? '' : '/path/to/your/gif1.gif'}
         />
         <Section
-          content={hovered === 'contact' ? 'Lorenzo Llamas (Developer, Technical Consultant, Client Relationship Manager)' : ''}
+          content={
+            hovered === 'contact'
+              ? 'Lorenzo Llamas (Developer, Technical Consultant, Client Relationship Manager)'
+              : ''
+          }
           gif={hovered === 'contact' ? '' : '/path/to/your/gif2.gif'}
         />
         <Section
@@ -44,7 +54,11 @@ const App = () => {
           gif={hovered === 'contact' ? '/path/to/your/newgif.gif' : '/path/to/your/gif3.gif'}
         />
         <Section
-          content={hovered === 'contact' ? 'Instagram: FinesseCoding\nYouTube: FinesseCoding' : ''}
+          content={
+            hovered === 'contact'
+              ? 'Instagram: FinesseCoding\nYouTube: FinesseCoding'
+              : ''
+          }
           gif={hovered === 'contact' ? '' : '/path/to/your/gif4.gif'}
         />
       </div>
