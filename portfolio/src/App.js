@@ -6,6 +6,7 @@ const App = () => {
   const [clickedNav, setClickedNav] = useState('');
   const [hoveredSection, setHoveredSection] = useState('');
   const [showText, setShowText] = useState(false); // State for text fade-in
+  const [flashAnimation, setFlashAnimation] = useState(false); // State for flash animation
 
   const handleSectionHover = (section) => {
     if (clickedNav === '') {
@@ -28,6 +29,10 @@ const App = () => {
   };
 
   const handleHeaderClick = () => {
+    setFlashAnimation(true);
+    setTimeout(() => {
+      setFlashAnimation(false);
+    }, 350); // Show GIFs for 0.5 seconds
     setClickedNav('');
     setShowText(false); // Hide text when clicking on header
   };
@@ -52,6 +57,7 @@ const App = () => {
           isNavClicked={clickedNav === 'about'}
           showText={showText}
           isHovered={hoveredSection === 'section1'}
+          flashAnimation={flashAnimation}
           onMouseEnter={() => handleSectionHover('section1')}
           onMouseLeave={handleSectionLeave}
         />
@@ -61,6 +67,7 @@ const App = () => {
           isNavClicked={clickedNav === 'about'}
           showText={showText}
           isHovered={hoveredSection === 'section2'}
+          flashAnimation={flashAnimation}
           onMouseEnter={() => handleSectionHover('section2')}
           onMouseLeave={handleSectionLeave}
         />
@@ -70,6 +77,7 @@ const App = () => {
           isNavClicked={clickedNav === 'about'}
           showText={showText}
           isHovered={hoveredSection === 'section3'}
+          flashAnimation={flashAnimation}
           onMouseEnter={() => handleSectionHover('section3')}
           onMouseLeave={handleSectionLeave}
         />
@@ -79,6 +87,7 @@ const App = () => {
           isNavClicked={clickedNav === 'about'}
           showText={showText}
           isHovered={hoveredSection === 'section4'}
+          flashAnimation={flashAnimation}
           onMouseEnter={() => handleSectionHover('section4')}
           onMouseLeave={handleSectionLeave}
         />
