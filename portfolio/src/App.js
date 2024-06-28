@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import Section from './components/Section';
 import './App.css';
 
 const App = () => {
-  const [hovered, setHovered] = useState('');
+  const [hoveredNav, setHoveredNav] = useState('');
 
-  const handleHover = (section) => {
-    setHovered(section);
+  const handleNavHover = (navItem) => {
+    setHoveredNav(navItem);
+  };
+
+  const handleNavLeave = () => {
+    setHoveredNav('');
   };
 
   return (
@@ -17,50 +20,57 @@ const App = () => {
           <a
             href="#about"
             className="about"
-            onMouseEnter={() => handleHover('about')}
-            onMouseLeave={() => handleHover('')}
+            onMouseEnter={() => handleNavHover('about')}
+            onMouseLeave={handleNavLeave}
           >
             ABOUT
           </a>
           <a
             href="#contact"
             className="contact"
-            onMouseEnter={() => handleHover('contact')}
-            onMouseLeave={() => handleHover('')}
+            onMouseEnter={() => handleNavHover('contact')}
+            onMouseLeave={handleNavLeave}
           >
             CONTACT
           </a>
         </nav>
       </div>
       <div className="sections">
-        <Section
-          content={
-            hovered === 'about'
-              ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-              : ''
-          }
-          gif={hovered === 'contact' ? '' : '/path/to/your/gif1.gif'}
-        />
-        <Section
-          content={
-            hovered === 'contact'
-              ? 'Lorenzo Llamas (Developer, Technical Consultant, Client Relationship Manager)'
-              : ''
-          }
-          gif={hovered === 'contact' ? '' : '/path/to/your/gif2.gif'}
-        />
-        <Section
-          content=""
-          gif={hovered === 'contact' ? '/path/to/your/newgif.gif' : '/path/to/your/gif3.gif'}
-        />
-        <Section
-          content={
-            hovered === 'contact'
-              ? 'Instagram: FinesseCoding\nYouTube: FinesseCoding'
-              : ''
-          }
-          gif={hovered === 'contact' ? '' : '/path/to/your/gif4.gif'}
-        />
+        <div className="section">
+          {hoveredNav === 'about' && (
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          )}
+          {hoveredNav === 'contact' && <p>Finessefilmproductions@gmail.com</p>}
+          {hoveredNav === '' && (
+            <img src="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif" alt="GIF" className="section-gif" />
+          )}
+        </div>
+        <div className="section">
+          {(hoveredNav === 'about' || hoveredNav === 'contact') && (
+            <p>Lorenzo Llamas (Developer, Technical Consultant, Client Relationship Manager)</p>
+          )}
+          {hoveredNav === '' && (
+            <img src="https://media.giphy.com/media/f3iwJFOVOwuy7K6FFw/giphy.gif" alt="GIF" className="section-gif" />
+          )}
+        </div>
+        <div className="section">
+          {hoveredNav === 'about' && (
+            <img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" alt="GIF" className="section-gif" />
+          )}
+          {hoveredNav === 'contact' && (
+            <img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" alt="GIF" className="section-gif" />
+          )}
+          {hoveredNav === '' && (
+            <img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" alt="GIF" className="section-gif" />
+          )}
+        </div>
+        <div className="section">
+          {hoveredNav === 'about' && <p>Instagram: FinesseCoding YouTube: FinesseCoding</p>}
+          {hoveredNav === 'contact' && <p>Instagram: FinesseCoding YouTube: FinesseCoding</p>}
+          {hoveredNav === '' && (
+            <img src="https://gifdb.com/images/high/coding-animated-laptop-flow-stream-ja04010rm5o68zfk.gif" alt="GIF" className="section-gif" />
+          )}
+        </div>
       </div>
     </div>
   );

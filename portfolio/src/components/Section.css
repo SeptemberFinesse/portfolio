@@ -6,17 +6,24 @@
     justify-content: center;
     color: black;
     padding: 20px;
+    overflow: hidden;
   }
   
   .section p {
     margin: 0;
-    z-index: 1;
+    z-index: 1; /* Ensure the text is above other elements */
     font-size: 1em;
-    color: white; /* Ensure text color is white */
+    color: black;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute; /* Ensure the text is positioned within the section */
+    top: 50%; /* Center the text vertically */
+    left: 50%; /* Center the text horizontally */
+    transform: translate(-50%, -50%); /* Center the text */
   }
   
-  .section:hover {
-    background-color: rgba(40, 44, 52, 0.8);
+  .section.hovered p {
+    opacity: 1;
   }
   
   .section-gif {

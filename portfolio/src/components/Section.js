@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Typewriter from './Typewriter';
 import './Section.css';
 
 const Section = ({ content, gif }) => {
@@ -18,13 +17,19 @@ const Section = ({ content, gif }) => {
     return () => clearTimeout(timer);
   }, [hovered, gif]);
 
+  useEffect(() => {
+    if (hovered) {
+      console.log('Displaying content:', content);
+    }
+  }, [hovered, content]);
+
   return (
     <div
-      className="section"
+      className={`section ${hovered ? 'hovered' : ''}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {hovered && content && <Typewriter text={content} />}
+      {content && <p className="fade-text">{content}</p>}
       {displayGif && <img src={gif} alt="gif" className="section-gif" />}
     </div>
   );
