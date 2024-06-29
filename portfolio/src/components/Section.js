@@ -1,15 +1,15 @@
 import React from 'react';
 import './Section.css';
 
-const Section = ({ content, gif, isNavClicked, showText, isHovered, flashAnimation, onMouseEnter, onMouseLeave }) => {
+const Section = ({ content, gif, isHovered, flashAnimation, onMouseEnter, onMouseLeave }) => {
   return (
     <div
-      className={`section ${isHovered ? 'hovered' : ''} ${showText ? 'show-text' : ''} ${flashAnimation ? 'flash' : ''}`}
+      className={`section ${isHovered ? 'hovered' : ''} ${content ? 'show-text' : ''} ${flashAnimation ? 'flash' : ''}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {showText && content ? (
-        <p className="fade-text show">{content}</p>
+      {content ? (
+        <p className={`fade-text ${content ? 'show' : ''}`}>{content}</p>
       ) : (
         <img src={gif} alt="gif" className={`section-gif ${isHovered || flashAnimation ? 'show' : ''}`} />
       )}

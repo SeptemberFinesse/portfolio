@@ -1,41 +1,33 @@
-import React, { useState } from 'react';
-import Section from './components/Section';
+import React, { useState, useEffect } from 'react';
+import GifSections from './components/GifSections';
+import AboutSections from './components/AboutSections';
+import ContactSections from './components/ContactSections';
 import './App.css';
 
 const App = () => {
   const [clickedNav, setClickedNav] = useState('');
-  const [hoveredSection, setHoveredSection] = useState('');
-  const [showText, setShowText] = useState(false); // State for text fade-in
   const [flashAnimation, setFlashAnimation] = useState(false); // State for flash animation
 
-  const handleSectionHover = (section) => {
-    if (clickedNav === '') {
-      setHoveredSection(section);
-    }
-  };
-
-  const handleSectionLeave = () => {
-    setHoveredSection('');
-  };
-
   const handleNavClick = (navItem) => {
-    if (clickedNav === navItem) {
-      setClickedNav('');
-      setShowText(false); // Hide text on second click
-    } else {
-      setClickedNav(navItem);
-      setShowText(true); // Show text on click
-    }
+    setClickedNav(navItem);
   };
 
   const handleHeaderClick = () => {
     setFlashAnimation(true);
+    setClickedNav('');
     setTimeout(() => {
       setFlashAnimation(false);
-    }, 350); // Show GIFs for 0.5 seconds
-    setClickedNav('');
-    setShowText(false); // Hide text when clicking on header
+    }, 500); // Flash for 0.5 seconds
   };
+
+  useEffect(() => {
+    if (clickedNav === '') {
+      setFlashAnimation(true);
+      setTimeout(() => {
+        setFlashAnimation(false);
+      }, 500); // Flash for 0.5 seconds
+    }
+  }, [clickedNav]);
 
   return (
     <div className="App">
@@ -45,52 +37,15 @@ const App = () => {
           <div className="about" onClick={() => handleNavClick('about')}>
             ABOUT
           </div>
-          <div className="contact">
+          <div className="contact" onClick={() => handleNavClick('contact')}>
             CONTACT
           </div>
         </nav>
       </div>
       <div className="sections">
-        <Section
-          content={clickedNav === 'about' ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' : ''}
-          gif="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif"
-          isNavClicked={clickedNav === 'about'}
-          showText={showText}
-          isHovered={hoveredSection === 'section1'}
-          flashAnimation={flashAnimation}
-          onMouseEnter={() => handleSectionHover('section1')}
-          onMouseLeave={handleSectionLeave}
-        />
-        <Section
-          content={clickedNav === 'about' ? 'Lorenzo Llamas (Developer, Technical Consultant, Client Relationship Manager)' : ''}
-          gif="https://media.giphy.com/media/f3iwJFOVOwuy7K6FFw/giphy.gif"
-          isNavClicked={clickedNav === 'about'}
-          showText={showText}
-          isHovered={hoveredSection === 'section2'}
-          flashAnimation={flashAnimation}
-          onMouseEnter={() => handleSectionHover('section2')}
-          onMouseLeave={handleSectionLeave}
-        />
-        <Section
-          content=""
-          gif="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif"
-          isNavClicked={clickedNav === 'about'}
-          showText={showText}
-          isHovered={hoveredSection === 'section3'}
-          flashAnimation={flashAnimation}
-          onMouseEnter={() => handleSectionHover('section3')}
-          onMouseLeave={handleSectionLeave}
-        />
-        <Section
-          content={clickedNav === 'about' ? 'Instagram: FinesseCoding YouTube: FinesseCoding' : ''}
-          gif="https://gifdb.com/images/high/coding-animated-laptop-flow-stream-ja04010rm5o68zfk.gif"
-          isNavClicked={clickedNav === 'about'}
-          showText={showText}
-          isHovered={hoveredSection === 'section4'}
-          flashAnimation={flashAnimation}
-          onMouseEnter={() => handleSectionHover('section4')}
-          onMouseLeave={handleSectionLeave}
-        />
+        {clickedNav === 'about' && <AboutSections />}
+        {clickedNav === 'contact' && <ContactSections />}
+        {!clickedNav && <GifSections flashAnimation={flashAnimation} />}
       </div>
     </div>
   );

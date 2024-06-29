@@ -20,9 +20,14 @@
     opacity: 1;
   }
   
+  .section.flash img {
+    opacity: 0; /* Start with opacity 0 for flash effect */
+    border: 5px solid black; /* Add border during flash animation */
+    transition: opacity 0.5s ease-in-out, border 0.5s ease-in-out;
+  }
+  
   .section.flash img.show {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    opacity: 1; /* Fade in during the flash effect */
   }
   
   .section img {
