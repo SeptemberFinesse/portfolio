@@ -16,21 +16,21 @@ const GifSections = ({ flashAnimation }) => {
   return (
     <>
       <Section
-        gif="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif"
+        gif="https://shorturl.at/H3IyH"
         isHovered={hoveredSection === 'section1'}
         flashAnimation={flashAnimation}
         onMouseEnter={() => handleSectionHover('section1')}
         onMouseLeave={handleSectionLeave}
       />
       <Section
-        gif="https://media.giphy.com/media/f3iwJFOVOwuy7K6FFw/giphy.gif"
+        gif="https://shorturl.at/KfHOp"
         isHovered={hoveredSection === 'section2'}
         flashAnimation={flashAnimation}
         onMouseEnter={() => handleSectionHover('section2')}
         onMouseLeave={handleSectionLeave}
       />
       <Section
-        gif="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif"
+        gif="https://s2.ezgif.com/tmp/ezgif-2-2ba854c859.gif"
         isHovered={hoveredSection === 'section3'}
         flashAnimation={flashAnimation}
         onMouseEnter={() => handleSectionHover('section3')}
