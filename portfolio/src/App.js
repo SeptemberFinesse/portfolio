@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Section from './components/Section';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import Weather from './components/Weather/components/Weather';
 import './App.css';
 
 const App = () => {
@@ -51,6 +53,7 @@ const App = () => {
         </nav>
       </div>
       <div className="sections">
+     
         <Section
           content={clickedNav === 'about' ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' : ''}
           gif="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif"
