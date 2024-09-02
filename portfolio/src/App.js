@@ -55,8 +55,8 @@ const App = () => {
       <div className="sections">
      
         <Section
-          content={clickedNav === 'about' ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' : ''}
-          gif="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif"
+          content={clickedNav === 'about' ? 'Node.js, React.js, Express.js. Redux, JWT Authoritization, RESTful API implementation. Extensive mastery of React-Redux infrastructured applications. ' : ''}
+          gif="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzJjZXU4dW82ZHFxNXZ4ZDV2aTA0OGsyNWFzemVnaW9mMDQydXp4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IC8nzEz8ITGamlSL9e/giphy.gif"
           isNavClicked={clickedNav === 'about'}
           showText={showText}
           isHovered={hoveredSection === 'section1'}
@@ -66,7 +66,7 @@ const App = () => {
         />
         <Section
           content={clickedNav === 'about' ? 'Lorenzo Llamas (Developer, Technical Consultant, Client Relationship Manager)' : ''}
-          gif="https://media.giphy.com/media/f3iwJFOVOwuy7K6FFw/giphy.gif"
+          gif="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3U4aGFiNzZ3eGk0NXJidHE2YW1iZWF2N2ExODY4aWJiY3U4czMwdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yoyBIuYtd47Doe2Ybv/giphy.gif"
           isNavClicked={clickedNav === 'about'}
           showText={showText}
           isHovered={hoveredSection === 'section2'}
@@ -76,7 +76,7 @@ const App = () => {
         />
         <Section
           content=""
-          gif="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif"
+          gif="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2lvZTNqMmFnbHl3eTQ4MWFxN3kxM2xqOWR5dmR2ZncwZWxzMHVycyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/M6WdbXA3w6vtLWqqzD/giphy.gif"
           isNavClicked={clickedNav === 'about'}
           showText={showText}
           isHovered={hoveredSection === 'section3'}
@@ -86,7 +86,8 @@ const App = () => {
         />
         <Section
           content={clickedNav === 'about' ? 'Instagram: FinesseCoding YouTube: FinesseCoding' : ''}
-          gif="https://gifdb.com/images/high/coding-animated-laptop-flow-stream-ja04010rm5o68zfk.gif"
+          gif="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXd3dTZoY3hqdnk2YXdtdHAzZWpkNW5taWJtZ2Znem1leWFkb3Z4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/soZqHsiLKiYGDKdPxr/giphy.gif"
+          // gif="https://gifdb.com/images/high/coding-animated-laptop-flow-stream-ja04010rm5o68zfk.gif"
           isNavClicked={clickedNav === 'about'}
           showText={showText}
           isHovered={hoveredSection === 'section4'}
